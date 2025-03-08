@@ -13,7 +13,15 @@ class HEAVEN_API UEditorTimeSyncedControl : public UUserWidget
 public:
 	// 时间轴精度（单位：秒，控制时间同步更新频率）
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="TimeSync")
-	float TimelineResolution = 0.1f;
+	float TimelineResolution = 0.2f;
+
+	// 移动端优化参数
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Mobile")
+	float TouchHitBoxSize = 50.0f;
+
+	// 陀螺仪输入事件（蓝图可绑定）
+	UFUNCTION(BlueprintCallable, Category="Mobile")
+	void HandleGyroInput(FRotator RotationDelta);
 
 	// 同步音频时间轴（CurrentPlaybackTime：当前音频播放时间，单位：秒）
 	UFUNCTION(BlueprintCallable, Category="TimeSync")

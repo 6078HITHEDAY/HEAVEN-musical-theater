@@ -13,11 +13,11 @@ class HEAVEN_API UCubeInteractionComponent : public UActorComponent
 public:	
 	// 外立方体尺寸（单位：厘米，定义交互区域范围）
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Dimensions")
-	FVector OuterCubeSize = FVector(1000, 1000, 1000);
+	FVector OuterCubeSize = FVector(600, 600, 600);
 
 	// 内立方体尺寸（单位：厘米，用于元素生成基准）
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Dimensions")
-	FVector InnerCubeSize = FVector(100, 100, 100);
+	FVector InnerCubeSize = FVector(80, 80, 80);
 
 	// 在立方体表面生成点击交互元素（SurfaceNormal：表面法线方向）
 	UFUNCTION(BlueprintCallable, Category="Element Generation")
@@ -51,4 +51,11 @@ private:
 
 	// 插值变换更新实现（每帧调用）
 	void TickTransformInterpolation();
+
+	UFUNCTION(BlueprintCallable, Category="Input")
+	void HandleMultiTouch(const TArray<FVector2D>& TouchLocations);
+
+	// 优化后的四元数插值方法
+	UFUNCTION(BlueprintCallable, Category="Spatial Manipulation")
+	FQuat OptimizedQuatSlerp(FQuat Start, FQuat End, float Alpha);
 };
