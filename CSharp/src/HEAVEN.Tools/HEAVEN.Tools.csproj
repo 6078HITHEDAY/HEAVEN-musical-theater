@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- 使用.NET 6.0 SDK 作为长期支持版本，提供跨平台开发能力 -->
+  <PropertyGroup>
+    <!-- 基础编译配置 -->
+    <!-- 目标框架：.NET 6.0 提供最佳性能和API支持 -->
+    <!-- 平台：同时支持AnyCPU和x64架构 -->
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Unreal引擎C#交互库 -->
+    <!-- 路径指向插件目录的托管DLL -->
+    <Reference Include="UnrealEngine">
+      <HintPath>..\..\..\Plugins\UnrealCS\Managed\UnrealEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
